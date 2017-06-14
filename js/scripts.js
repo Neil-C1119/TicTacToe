@@ -92,13 +92,13 @@
         boardBoxes[number].addEventListener("mouseover", () => {
             if (player1.className === "players active") {
                 if (boardBoxes[number].className === "box") {
-                    boardBoxes[number].style.backgroundImage = "url('o.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-1") {
-                    boardBoxes[number].style.backgroundImage = "url('o.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')"
                 }
                 else if (boardBoxes[number].className === "box box-filled-2") {
-                    boardBoxes[number].style.backgroundImage = "url('x.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')"
                 }
                 else {
                     boardBoxes[number].style.backgroundImage = "url('')"
@@ -106,13 +106,13 @@
             }
             else if (player2.className === "players active") {
                 if (boardBoxes[number].className === "box") {
-                    boardBoxes[number].style.backgroundImage = "url('x.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-1") {
-                    boardBoxes[number].style.backgroundImage = "url('o.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')"
                 }
                 else if (boardBoxes[number].className === "box box-filled-2") {
-                    boardBoxes[number].style.backgroundImage = "url('x.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')"
                 }
                 else {
                     boardBoxes[number].style.backgroundImage = "url('')"
@@ -122,10 +122,10 @@
         boardBoxes[number].addEventListener("mouseout", () => {
             if (player2.className === "players active") {
                 if (boardBoxes[number].className === "box box-filled-1") {
-                    boardBoxes[number].style.backgroundImage = "url('o.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-2") {
-                    boardBoxes[number].style.backgroundImage = "url('x.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')"
                 }
                 else {
                     boardBoxes[number].style.backgroundImage = "url('')"
@@ -133,10 +133,10 @@
             }
             else if (player1.className === "players active") {
                 if (boardBoxes[number].className === "box box-filled-2") {
-                    boardBoxes[number].style.backgroundImage = "url('x.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-1") {
-                    boardBoxes[number].style.backgroundImage = "url('o.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')"
                 }
                 else {
                     boardBoxes[number].style.backgroundImage = "url('')"
