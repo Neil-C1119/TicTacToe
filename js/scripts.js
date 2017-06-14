@@ -7,6 +7,9 @@
     const startGameButton = document.getElementsByClassName("button");
     const player1 = document.getElementById("player1");
     const player2 = document.getElementById("player2");
+    const oNameHTML = document.getElementsByClassName("oName")[0];
+    const xNameHTML = document.getElementsByClassName("xName")[0];
+    const winnerMessage = document.getElementsByClassName("message");
     const boardBoxes = document.getElementsByClassName("box");
     let takenBoxes = [];
 
@@ -16,10 +19,24 @@
     $xWins.hide();
     $oWins.hide();
 
+    function playerNames() {
+        let oName = prompt("Keeper of the O's, enter thine name:", "O");
+        if (oName !== "") {
+            oNameHTML.innerHTML = oName;
+            winnerMessage[1].innerHTML = oName + "Wins! Play again?";
+        }
+        let xName = prompt("Ruler of X's, enter thine name:", "X");
+        if (xName !== "") {
+            xNameHTML.innerHTML = xName;
+            winnerMessage[2].innerHTML = xName + " wins! Play again?";
+        }
+    }
+
     function startGame(num) {
         startGameButton[num].addEventListener("click", () => {
             $startScreen.hide();
             $(board).show();
+            playerNames();
             player1.className = "players active";
         });
     }
