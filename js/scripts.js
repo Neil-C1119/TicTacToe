@@ -95,13 +95,13 @@
                     boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-1") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-2") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
                 }
                 else {
-                    boardBoxes[number].style.backgroundImage = "url('')"
+                    boardBoxes[number].style.backgroundImage = "url('')";
                 }
             }
             else if (player2.className === "players active") {
@@ -109,13 +109,13 @@
                     boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-1") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-2") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
                 }
                 else {
-                    boardBoxes[number].style.backgroundImage = "url('')"
+                    boardBoxes[number].style.backgroundImage = "url('')";
                 }
             }
         });
@@ -125,10 +125,10 @@
                     boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-2") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
                 }
                 else {
-                    boardBoxes[number].style.backgroundImage = "url('')"
+                    boardBoxes[number].style.backgroundImage = "url('')";
                 }
             }
             else if (player1.className === "players active") {
@@ -136,10 +136,10 @@
                     boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-1") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')"
+                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
                 }
                 else {
-                    boardBoxes[number].style.backgroundImage = "url('')"
+                    boardBoxes[number].style.backgroundImage = "url('')";
                 }
             }
         });
