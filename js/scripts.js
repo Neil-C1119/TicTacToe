@@ -31,7 +31,7 @@
                 winnerMessage[1].innerHTML = oName + " wins! Play again?";
             }
             else {
-                oNameHTML.innerHTML = "O";
+                oNameHTML.innerHTML = "";
                 winnerMessage[1].innerHTML = oName + "O wins! Play again?";
             }
             let xName = prompt("Ruler of X's, enter thine name:", "X");
@@ -40,7 +40,7 @@
                 winnerMessage[2].innerHTML = xName + " wins! Play again?";
             }
             else {
-                xNameHTML.innerHTML = "X";
+                xNameHTML.innerHTML = "";
                 winnerMessage[2].innerHTML = xName + "X wins! Play again?";
             }
         }
@@ -78,14 +78,14 @@
         let chosenBox = randomBox();
         if (boardBoxes[chosenBox].className === "box") {
             boardBoxes[chosenBox].className = "box box-filled-1";
-            boardBoxes[chosenBox].style.backgroundImage = "url('../img/o.svg')";
+            boardBoxes[chosenBox].style.backgroundImage = "url('img/o.svg')";
             takenBoxes.push(boardBoxes[chosenBox]);
         }
         else if (boardBoxes[chosenBox].className === "box box-filled-1" || boardBoxes[chosenBox].className === "box box-filled-2") {
             let newChosenBox = randomBox();
             if (boardBoxes[newChosenBox].className === "box") {
                 boardBoxes[newChosenBox].className = "box box-filled-1";
-                boardBoxes[newChosenBox].style.backgroundImage = "url('../img/o.svg')";
+                boardBoxes[newChosenBox].style.backgroundImage = "url('img/o.svg')";
                 takenBoxes.push(boardBoxes[newChosenBox]);
             }
             else {
@@ -213,13 +213,13 @@
         boardBoxes[number].addEventListener("mouseover", () => {
             if (player1.className === "players active") {
                 if (boardBoxes[number].className === "box") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('img/o.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-1") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('img/o.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-2") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('img/x.svg')";
                 }
                 else {
                     boardBoxes[number].style.backgroundImage = "url('')";
@@ -227,13 +227,13 @@
             }
             else if (player2.className === "players active") {
                 if (boardBoxes[number].className === "box") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('img/x.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-1") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('img/o.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-2") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('img/x.svg')";
                 }
                 else {
                     boardBoxes[number].style.backgroundImage = "url('')";
@@ -243,10 +243,10 @@
         boardBoxes[number].addEventListener("mouseout", () => {
             if (player2.className === "players active") {
                 if (boardBoxes[number].className === "box box-filled-1") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('img/o.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-2") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('img/x.svg')";
                 }
                 else {
                     boardBoxes[number].style.backgroundImage = "url('')";
@@ -254,10 +254,10 @@
             }
             else if (player1.className === "players active") {
                 if (boardBoxes[number].className === "box box-filled-2") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/x.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('img/x.svg')";
                 }
                 else if (boardBoxes[number].className === "box box-filled-1") {
-                    boardBoxes[number].style.backgroundImage = "url('../img/o.svg')";
+                    boardBoxes[number].style.backgroundImage = "url('img/o.svg')";
                 }
                 else {
                     boardBoxes[number].style.backgroundImage = "url('')";
