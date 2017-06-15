@@ -30,10 +30,18 @@
                 oNameHTML.innerHTML = oName;
                 winnerMessage[1].innerHTML = oName + " wins! Play again?";
             }
+            else {
+                oNameHTML.innerHTML = "O";
+                winnerMessage[1].innerHTML = oName + "O wins! Play again?";
+            }
             let xName = prompt("Ruler of X's, enter thine name:", "X");
             if (xName !== "") {
                 xNameHTML.innerHTML = xName;
                 winnerMessage[2].innerHTML = xName + " wins! Play again?";
+            }
+            else {
+                xNameHTML.innerHTML = "X";
+                winnerMessage[2].innerHTML = xName + "X wins! Play again?";
             }
         }
         else {
@@ -42,10 +50,18 @@
                 oNameHTML.innerHTML = oName;
                 winnerMessage[1].innerHTML = oName + " wins! Play again?";
             }
+            else {
+                oNameHTML.innerHTML = "O";
+                winnerMessage[1].innerHTML = oName + "O wins! Play again?";
+            }
             let xName = prompt("Ruler of X's, enter thine name:", "X");
             if (xName !== "") {
                 xNameHTML.innerHTML = xName;
                 winnerMessage[2].innerHTML = xName + " wins! Play again?";
+            }
+            else {
+                xNameHTML.innerHTML = "X";
+                winnerMessage[2].innerHTML = xName + "X wins! Play again?";
             }
         }
     }
