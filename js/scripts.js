@@ -26,42 +26,42 @@
     function playerNames() {
         if (aiGame === true) {
             let oName = prompt("Keeper of the O's, enter thine name (AI):", "AI");
-            if (oName !== "") {
+            if (oName) {
                 oNameHTML.innerHTML = oName;
                 winnerMessage[1].innerHTML = oName + " wins! Play again?";
             }
             else {
                 oNameHTML.innerHTML = "";
-                winnerMessage[1].innerHTML = oName + "O wins! Play again?";
+                winnerMessage[1].innerHTML = "O wins! Play again?";
             }
             let xName = prompt("Ruler of X's, enter thine name:", "X");
-            if (xName !== "") {
+            if (xName) {
                 xNameHTML.innerHTML = xName;
                 winnerMessage[2].innerHTML = xName + " wins! Play again?";
             }
             else {
                 xNameHTML.innerHTML = "";
-                winnerMessage[2].innerHTML = xName + "X wins! Play again?";
+                winnerMessage[2].innerHTML = "X wins! Play again?";
             }
         }
         else {
             let oName = prompt("Keeper of the O's, enter thine name:", "O");
-            if (oName !== "") {
+            if (oName) {
                 oNameHTML.innerHTML = oName;
                 winnerMessage[1].innerHTML = oName + " wins! Play again?";
             }
             else {
                 oNameHTML.innerHTML = "O";
-                winnerMessage[1].innerHTML = oName + "O wins! Play again?";
+                winnerMessage[1].innerHTML = "O wins! Play again?";
             }
             let xName = prompt("Ruler of X's, enter thine name:", "X");
-            if (xName !== "") {
+            if (xName) {
                 xNameHTML.innerHTML = xName;
                 winnerMessage[2].innerHTML = xName + " wins! Play again?";
             }
             else {
                 xNameHTML.innerHTML = "X";
-                winnerMessage[2].innerHTML = xName + "X wins! Play again?";
+                winnerMessage[2].innerHTML =  "X wins! Play again?";
             }
         }
     }
