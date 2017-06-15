@@ -31,8 +31,8 @@
                 winnerMessage[1].innerHTML = oName + " wins! Play again?";
             }
             else {
-                oNameHTML.innerHTML = "";
-                winnerMessage[1].innerHTML = "O wins! Play again?";
+                oNameHTML.innerHTML = "O";
+                winnerMessage[1].innerHTML =  "O wins! Play again?";
             }
             let xName = prompt("Ruler of X's, enter thine name:", "X");
             if (xName) {
@@ -40,8 +40,8 @@
                 winnerMessage[2].innerHTML = xName + " wins! Play again?";
             }
             else {
-                xNameHTML.innerHTML = "";
-                winnerMessage[2].innerHTML = "X wins! Play again?";
+                xNameHTML.innerHTML = "X";
+                winnerMessage[2].innerHTML =  "X wins! Play again?";
             }
         }
         else {
@@ -52,7 +52,7 @@
             }
             else {
                 oNameHTML.innerHTML = "O";
-                winnerMessage[1].innerHTML = "O wins! Play again?";
+                winnerMessage[1].innerHTML =  "O wins! Play again?";
             }
             let xName = prompt("Ruler of X's, enter thine name:", "X");
             if (xName) {
@@ -211,7 +211,7 @@
 
     function boxHover(number) {
         boardBoxes[number].addEventListener("mouseover", () => {
-            if (player1.className === "players active") {
+            if (player1.className === "players active" && aiGame === false) {
                 if (boardBoxes[number].className === "box") {
                     boardBoxes[number].style.backgroundImage = "url('img/o.svg')";
                 }
@@ -252,7 +252,7 @@
                     boardBoxes[number].style.backgroundImage = "url('')";
                 }
             }
-            else if (player1.className === "players active") {
+            else if (player1.className === "players active" && aiGame === false) {
                 if (boardBoxes[number].className === "box box-filled-2") {
                     boardBoxes[number].style.backgroundImage = "url('img/x.svg')";
                 }
