@@ -210,3 +210,7 @@ h1 {
         background-color: #3688C3;
         background-image: url(x.svg);
     }
+
+.buttonText {
+    width: 320px;
+}

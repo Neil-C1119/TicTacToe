@@ -11,26 +11,85 @@
     const xNameHTML = document.getElementsByClassName("xName")[0];
     const winnerMessage = document.getElementsByClassName("message");
     const boardBoxes = document.getElementsByClassName("box");
+    const aiButton = $('.aiButton');
     let takenBoxes = [];
+    let aiGame = false;
 
     //Hide all of the different boards 
     $(board).hide();
     $tieGame.hide();
     $xWins.hide();
     $oWins.hide();
+    aiButton.hide();
+
 
     function playerNames() {
-        let oName = prompt("Keeper of the O's, enter thine name:", "O");
-        if (oName !== "") {
-            oNameHTML.innerHTML = oName;
-            winnerMessage[1].innerHTML = oName + "Wins! Play again?";
+        if (aiGame === true) {
+            let oName = prompt("Keeper of the O's, enter thine name (AI):", "AI");
+            if (oName !== "") {
+                oNameHTML.innerHTML = oName;
+                winnerMessage[1].innerHTML = oName + " wins! Play again?";
+            }
+            let xName = prompt("Ruler of X's, enter thine name:", "X");
+            if (xName !== "") {
+                xNameHTML.innerHTML = xName;
+                winnerMessage[2].innerHTML = xName + " wins! Play again?";
+            }
         }
-        let xName = prompt("Ruler of X's, enter thine name:", "X");
-        if (xName !== "") {
-            xNameHTML.innerHTML = xName;
-            winnerMessage[2].innerHTML = xName + " wins! Play again?";
+        else {
+            let oName = prompt("Keeper of the O's, enter thine name:", "O");
+            if (oName !== "") {
+                oNameHTML.innerHTML = oName;
+                winnerMessage[1].innerHTML = oName + " wins! Play again?";
+            }
+            let xName = prompt("Ruler of X's, enter thine name:", "X");
+            if (xName !== "") {
+                xNameHTML.innerHTML = xName;
+                winnerMessage[2].innerHTML = xName + " wins! Play again?";
+            }
         }
     }
+
+    function randomBox() {
+        const chosenBox = Math.floor(Math.random() * 9);
+        return chosenBox;
+    }
+
+    function playAi() {
+        player1.className = "players active";
+        player2.className = "players";
+        aiButton.show();
+        let chosenBox = randomBox();
+        if (boardBoxes[chosenBox].className === "box") {
+            boardBoxes[chosenBox].className = "box box-filled-1";
+            boardBoxes[chosenBox].style.backgroundImage = "url('../img/o.svg')";
+            takenBoxes.push(boardBoxes[chosenBox]);
+        }
+        else if (boardBoxes[chosenBox].className === "box box-filled-1" || boardBoxes[chosenBox].className === "box box-filled-2") {
+            let newChosenBox = randomBox();
+            if (boardBoxes[newChosenBox].className === "box") {
+                boardBoxes[newChosenBox].className = "box box-filled-1";
+                boardBoxes[newChosenBox].style.backgroundImage = "url('../img/o.svg')";
+                takenBoxes.push(boardBoxes[newChosenBox]);
+            }
+            else {
+                playAi();
+            }
+        }
+    }
+
+    function aiButtonListener() {
+        startGameButton[1].addEventListener("click", () => {
+            aiButton.show();
+            aiGame = true;
+            console.log(aiGame);
+            $startScreen.hide();
+            $(board).show();
+            playerNames();
+            player2.className = "players active";
+        });
+    }
+    aiButtonListener();
 
     function startGame(num) {
         startGameButton[num].addEventListener("click", () => {
@@ -49,7 +108,15 @@
             $tieGame.hide();
             clearBoxes();
             $(board).show();
-            player1.className = "players active";
+            if (aiGame === true) {
+                player2.className = "players active";
+                player1.className = "players";
+                aiButton.show();
+            }
+            else {
+                player2.className = "players";
+                player1.className = "players active";
+            }
         });
     }
 
@@ -77,28 +144,49 @@
 
     function boxListener(number) {
         boardBoxes[number].addEventListener("click", () => {
-            if (player1.className === "players active") {
-                if (boardBoxes[number].className === "box") {
-                    boardBoxes[number].className = "box box-filled-1";
-                    takenBoxes.push(boardBoxes[number]);
+            if (aiGame === true) {
+                if (player1.className === "players active") {
+                    playAi();
                     player1.className = "players";
                     player2.className = "players active";
                 }
-                else {
-                    player1.className = "players active";
-                    player2.className = "players";
+                else if (player2.className === "players active") {
+                    if (boardBoxes[number].className === "box") {
+                        boardBoxes[number].className = "box box-filled-2";
+                        takenBoxes.push(boardBoxes[number]);
+                        player1.className = "players active";
+                        player2.className = "players";
+                    }
+                    else {
+                        player1.className = "players";
+                        player2.className = "players active";
+                    }
                 }
             }
-            else if (player2.className === "players active") {
-                if (boardBoxes[number].className === "box") {
-                    boardBoxes[number].className = "box box-filled-2";
-                    takenBoxes.push(boardBoxes[number]);
-                    player1.className = "players active";
-                    player2.className = "players";
+            else {
+                if (player1.className === "players active") {
+                    if (boardBoxes[number].className === "box") {
+                        boardBoxes[number].className = "box box-filled-1";
+                        takenBoxes.push(boardBoxes[number]);
+                        player1.className = "players";
+                        player2.className = "players active";
+                    }
+                    else {
+                        player1.className = "players active";
+                        player2.className = "players";
+                    }
                 }
-                else {
-                    player1.className = "players";
-                    player2.className = "players active";
+                else if (player2.className === "players active") {
+                    if (boardBoxes[number].className === "box") {
+                        boardBoxes[number].className = "box box-filled-2";
+                        takenBoxes.push(boardBoxes[number]);
+                        player1.className = "players active";
+                        player2.className = "players";
+                    }
+                    else {
+                        player1.className = "players";
+                        player2.className = "players active";
+                    }
                 }
             }
             winCheckAll();
@@ -165,15 +253,15 @@
     function checkIfWon(x, y, z) {
         if (boardBoxes[x].className === "box box-filled-1" && boardBoxes[y].className === "box box-filled-1" && boardBoxes[z].className === "box box-filled-1") {
             $oWins.show();
-            newGame(2);
+            newGame(4);
         }
         else if (boardBoxes[x].className === "box box-filled-2" && boardBoxes[y].className === "box box-filled-2" && boardBoxes[z].className === "box box-filled-2") {
             $xWins.show();
-            newGame(3);
+            newGame(5);
         }
         else if (takenBoxes.length === 9) {
             $tieGame.show();
-            newGame(1);
+            newGame(3);
         }
     }
 
@@ -207,6 +295,7 @@
         boxHover(7);
         boxListener(8);
         boxHover(8);
+        boxListener(9);
     }
     playGame();
 }();
