@@ -92,7 +92,7 @@ h1 {
 }
 
 .screen-win-one {
-    background-image: url(../img/tictactoe-03-winner1);
+    background-color: #FFA000;
 }
 
     .screen-win-one .button {
@@ -104,7 +104,7 @@ h1 {
     }
 
 .screen-win-two {
-    background-image: url(../img/tictactoe-04-winner2);
+    background-color: #3688C3;
 }
 
     .screen-win-two .button {
