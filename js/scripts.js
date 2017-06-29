@@ -11,7 +11,6 @@
     const xNameHTML = document.getElementsByClassName("xName")[0];
     const winnerMessage = document.getElementsByClassName("message");
     const boardBoxes = document.getElementsByClassName("box");
-    const aiButton = $('.aiButton');
     let takenBoxes = [];
     let aiGame = false;
 
@@ -20,7 +19,6 @@
     $tieGame.hide();
     $xWins.hide();
     $oWins.hide();
-    aiButton.hide();
 
 
     function playerNames() {
@@ -74,7 +72,6 @@
     function playAi() {
         player1.className = "players active";
         player2.className = "players";
-        aiButton.show();
         let chosenBox = randomBox();
         if (boardBoxes[chosenBox].className === "box") {
             boardBoxes[chosenBox].className = "box box-filled-1";
@@ -96,13 +93,18 @@
 
     function aiButtonListener() {
         startGameButton[1].addEventListener("click", () => {
-            aiButton.show();
             aiGame = true;
-            console.log(aiGame);
+            console.log("AI game = " + aiGame);
             $startScreen.hide();
             $(board).show();
             playerNames();
             player2.className = "players active";
+            if (aiGame === true) {
+                $(".guidance").show();
+            }
+            else {
+                $(".guidance").hide();
+            }
         });
     }
     aiButtonListener();
@@ -113,6 +115,12 @@
             $(board).show();
             playerNames();
             player1.className = "players active";
+            if (aiGame === true) {
+                $(".guidance").show();
+            }
+            else {
+                $(".guidance").hide();
+            }
         });
     }
     startGame(0);
@@ -127,7 +135,6 @@
             if (aiGame === true) {
                 player2.className = "players active";
                 player1.className = "players";
-                aiButton.show();
             }
             else {
                 player2.className = "players";
@@ -269,15 +276,15 @@
     function checkIfWon(x, y, z) {
         if (boardBoxes[x].className === "box box-filled-1" && boardBoxes[y].className === "box box-filled-1" && boardBoxes[z].className === "box box-filled-1") {
             $oWins.show();
-            newGame(4);
+            newGame(3);
         }
         else if (boardBoxes[x].className === "box box-filled-2" && boardBoxes[y].className === "box box-filled-2" && boardBoxes[z].className === "box box-filled-2") {
             $xWins.show();
-            newGame(5);
+            newGame(4);
         }
         else if (takenBoxes.length === 9) {
             $tieGame.show();
-            newGame(3);
+            newGame(2);
         }
     }
 
@@ -311,7 +318,6 @@
         boxHover(7);
         boxListener(8);
         boxHover(8);
-        boxListener(9);
     }
     playGame();
 }();

@@ -17,7 +17,7 @@
         </header>
     </div>
     
-    <div class="board" id="board">
+<div class="board" id="board">
   <header class="scoreboard">
     <h1>Tic Tac Toe</h1>
       <div class="names">
@@ -46,6 +46,8 @@
   </ul>
 </div>
 
+<p class="guidance">Click anywhere on the boxes for the AI to take it's turn!</p>
+
 <div class="screen screen-win-tie" id="finish">
     <header>
         <h1>Tic Tac Toe</h1>
@@ -55,20 +57,26 @@
 </div>
 
 <div class="screen screen-win-one" id="finish">
-    <header>
-        <p class="message">O wins! Play again?</p>
-        <a href="#" class="button">New Game</a>
-    </header>
+    <div class="backgroundWinner1">
+        <header>
+            <h1>Tic Tac Toe</h1>
+            <p class="message">O wins! Play again?</p>
+            <a href="#" class="button">New Game</a>
+        </header>
+    </div>
 </div>
 
 <div class="screen screen-win-two" id="finish">
-    <header>
-        <p class="message">X wins! Play again?</p>
-        <a href="#" class="button">New Game</a>
-    </header>
+    <div class="backgroundWinner2">
+        <header>
+            <h1>Tic Tac Toe</h1>
+            <p class="message">X wins! Play again?</p>
+            <a href="#" class="button">New Game</a>
+        </header>
+    </div>
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/Scripts.js"></script>
+<script src="js/scripts.js"></script>
 </body>
 </html>

@@ -44,7 +44,7 @@ h1 {
 
     .screen header {
         position: relative;
-        top: 50%;
+        margin-top: 50%;
         -webkit-transform: translatey(-50%);
         transform: translatey(-50%);
     }
@@ -97,6 +97,7 @@ h1 {
 
     .screen-win-one .button {
         color: #3688C3;
+        margin-top: 20px;
     }
 
     .screen-win-one p:before {
@@ -109,6 +110,7 @@ h1 {
 
     .screen-win-two .button {
         color: #FFA000;
+        margin-top: 20px;
     }
 
     .screen-win-two p:before {
@@ -135,7 +137,12 @@ h1 {
     float: right;
 }
 
-
+.guidance {
+    float: left;
+    text-align: center;
+    margin: 2em 33% ;
+    font-size: 1.35em;
+}
 
 .players {
     color: rgba(0, 0, 0, 0.2);
@@ -166,6 +173,27 @@ h1 {
 
 #player1.active svg g, #player2.active svg g {
     fill: #fff;
+}
+
+.backgroundWinner1 header {
+    background-image: url(../img/o.svg);
+    background-repeat: no-repeat;
+    background-size: 125px;
+    background-position: top center;
+}
+
+.backgroundWinner2 header {
+    background-image: url(../img/x.svg);
+    background-repeat: no-repeat;
+    background-size: 125px;
+    background-position: top center;
+}
+
+.backgroundWinner1 p,
+.backgroundWinner2 p,
+.backgroundWinner1 h1,
+.backgroundWinner2 h1{
+    color: black;
 }
 
 #player1.active {
@@ -204,12 +232,12 @@ h1 {
 
     .boxes .box-filled-1 {
         background-color: #FFA000;
-        background-image: url(o.svg);
+        background-image: url(../img/o.svg);
     }
 
     .boxes .box-filled-2 {
         background-color: #3688C3;
-        background-image: url(x.svg);
+        background-image: url(../img/x.svg);
     }
 
 .aiText {
